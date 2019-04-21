@@ -1,0 +1,4 @@
+ShipmentId, FromAddressLine1, FromAddressLine2, FromAddressLine3, ToAddressPin, ToAddressLine1, ToAddressLine2, ToAddressLine3, ToAddressPin, Dat
+590501, "DTU", "Bawana", "New Delhi", 110039, "123", "ABC Colony", "New Delhi", 110063, '10-03-2019'
+908401, "DTU", "Bawana", "New Delhi", 110039, "123", "ABC Colony", "New Delhi", 110063, '10-03-2019'
+451853, "DTU", "Bawana", "New Delhi", 110039, "123", "ABC Colony", "New Delhi", 110063, '10-03-2019'

@@ -1,0 +1,4 @@
+PackageId, ShipmentId, Title, CustomerId, Type, OfficeId
+428347, 590501, "electronic", 3, 2, 1
+37615, 908401, "clothing", 2, 4, 2
+177986, 451853, "sports", 3, 7, 1

@@ -1,1 +1,2 @@
-CustomerId, FirstName, LastName, MiddleName, PhoneNo, AddressLine1, AddressLine2, AddressLine3, ZipCode, Email
+CustomerId,FirstName,LastName,MiddleName,PhoneNo,AddressLine1,AddressLine2, AddressLine3, ZipCode, Email
+41047,Vaibhav,Bagga,,9818413224,A-6/164-C,Paschim Vihar,New Delhi,110063,vaibagga@gmail.com

@@ -169,7 +169,7 @@ CREATE TABLE Shipment(
 	FromAddressLine1 VARCHAR(20),
 	FromAddressLine2 VARCHAR(20),
 	FromAddressLine3 VARCHAR(20),
-	ToAddressPin INT,
+	FromAddressPin INT,
 	ToAddressLine1 VARCHAR(20),
 	ToAddressLine2 VARCHAR(20),
 	ToAddressLine3 VARCHAR(20),

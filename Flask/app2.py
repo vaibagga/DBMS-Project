@@ -3,10 +3,15 @@ import os
 import yaml
 from flaskext.mysql import MySQL
 import numpy as np
-import pandas as pd
 
 app = Flask(__name__)
 
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = '1234'
+app.config['MYSQL_DB'] = 'CourierManagementSystem'
+
+mysql = MySQL(app)
 
 @app.route('/')
 def index():
@@ -18,11 +23,11 @@ def login():
 	if request.method == 'POST':
 		userDetails = request.form
 		email = userDetails['email']
-		password = userDetails['password']	
-		login = pd.read_csv('Database/customerlogin.csv')
-		print(login.columns.values)
-		currentId = login.loc[(login['CustomerUsername'] == email) & (login['Password'] == password)]['CustomerId']
-		return dashboard(currentId)
+		password = userDetails['password']
+		customers = pd.read_csv('customers.csv')
+		## autherntication 
+		cur.execute("SELECT ")
+		return "SUCCESS"
 	return render_template('login.html')
 
 @app.route('/register.html', methods = ['GET', 'POST'])
@@ -40,18 +45,19 @@ def register():
 		AddressLine3 = userDetails['addressline3']
 		PhoneNo = userDetails['phone']
 		ZipCode = userDetails['pincode']
-
-		customerId = np.random.randint(0, 100000);
-		with open('Database/customers.csv', 'a') as fd:
-			fd.write("\n" + str(customerId) + ","  + FirstName + "," + LastName + ","  + MiddleName + "," + str(PhoneNo) + "," + AddressLine1 + "," + AddressLine2 + "," + AddressLine3 + "," + str(ZipCode) +  email)
-		with open('Database/customerlogin.csv','a') as fd:
-			fd.write("\n"+email + "," + str(customerId) + "," + password)
-		return "SUCCESS"
+		customerId = np.random.randint(1000000)
+		cursor = mysql.get_db().cursor()
+		cur.execute("INSERT INTO CustomerLogin(CustomerUserName, CustomerId, Password) VALUES (%s, %d, %s)", (email, lastName, password))
+		cur.execute("INSERT INTO Customers(CustomerId, FirstName, LastName, MiddleName, PhoneNo, AddressLine1, AddressLine2, AddressLine3, ZipCode, Email) VALUES (%d, %s, %s, %s, %d, %s, %s, %s, %d, %s)", (customerId, FirstName, LastName, MiddleName, PhoneNo, AddressLine1, AddressLine2, AddressLine3, ZipCode, email))
+		mysql.get_db.commit()
+		cur.close()
+		return 'success'
 	return render_template('register.html')
 
 
 @app.route('/dashboard.html', methods = ['GET', 'POST'])
-def dashboard(customerId):
+def dashboard(id):
+	cur.execute(" SELECT * FROM Packages WHERE CustomerID = (%s)", id)
 	return render_template('dashboard.html')
 
 

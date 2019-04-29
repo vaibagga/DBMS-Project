@@ -35,10 +35,10 @@ body, html {
     <!-- Right-sided navbar links -->
     <div class="w3-right w3-hide-small">
       <a href="#about" class="w3-bar-item w3-button">HOME</a>
-      <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i>YOUR PACKAGES </a>
-      <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i>BOOK A NEW PACKAGE</a>
+      <a href="#packages" class="w3-bar-item w3-button"><i class="fa fa-user"></i>YOUR PACKAGES </a>
+      <a href="#book" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i>BOOK A NEW PACKAGE</a>
       <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i>NEED HELP?</a>
-      <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i>Logout</a>
+      <a href="https://www.google.com" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i>Logout</a>
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -77,8 +77,24 @@ body, html {
 </header>
 
 <!-- About Section -->
-<div class="w3-container" style="padding:128px 16px" id="about">
+<div class="w3-container" style="padding:128px 16px" id="packages">
   <h3 class="w3-center">YOUR CURRENT PACKAGES</h3>
+   <table class="w3-table-all w3-hoverable">
+      <tr>
+        <th>Package Id</th>
+        <th>Shipment Id</th>
+        <th>Type </th>
+        <th>Title</th>
+      </tr>
+      <tr>
+        <td>428347</td>
+        <td>590501</td>
+        <td>3</td>
+        <td>Electronic</td>
+      </tr>
+</table> 
+   </table>
+
   <script>
   CsvToHtmlTable.init({
     csv_path: 'Database/customers.csv',
@@ -88,34 +104,36 @@ body, html {
     datatables_options: {"paging": false}
   });
 </script>
-  <p class="w3-center w3-large">Key features of our company</p>
-  <div class="w3-row-padding w3-center" style="margin-top:64px">
+
+  <div class="w3-row-padding w3-center" style="margin-top:64px">-
   </div>
 </div>
 
 
 <!-- Team Section -->
+<div class="w3-card-4">
+
+<div class="w3-container w3-green">
+  <h2>Book a new one</h2>
+</div>
 
 
 <!-- Promo Section "Statistics" -->
-<div class="w3-container w3-row w3-center w3-dark-grey w3-padding-64">
-  <div class="w3-quarter">
-    <span class="w3-xxlarge">6+</span>
-    <br>Partners
-  </div>
-  <div class="w3-quarter">
-    <span class="w3-xxlarge">100000+</span>
-    <br>Packages Delivered
-  </div>
-  <div class="w3-quarter">
-    <span class="w3-xxlarge">1000+</span>
-    <br>Happy Clients
-  </div>
-  <div class="w3-quarter">
-    <span class="w3-xxlarge">15+</span>
-    <br>Cities
-  </div>
-</div>
+<form class="w3-container">
+ <label>Type of Package</label> 
+ <select name="Type of Package">
+  <option value="electronic">Electronic</option>
+  <option value="clothing">Clothing</option>
+  <option value="sports">Sports</option>
+</select><br>
+  <label>Addres Line 1</label> <input class = "w3-input" type="text" placeholder="Address Line 1" name="AddressLine1"/><br>
+  <label>Address Line2</label> <input class = "w3-input" type="text" placeholder="Address Line 2" name="AddressLine2"/><br>
+  <label>Address Line 3</label> <input class = "w3-input" type="text" placeholder="Address Line 3" name="AddressLine3"/><br>
+  <label>Comments</label> <input class = "w3-input" type="text" placeholder="Comments" name="comment"/><br>
+   <button type="submit" form="form1" value="Submit">Submit</button> 
+
+
+</form> 
 
 <!-- Modal for full size images on click-->
 <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
@@ -130,12 +148,12 @@ body, html {
 
 <!-- Contact Section -->
 <div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
-  <h3 class="w3-center">CONTACT</h3>
+  <h3 class="w3-center">NEED HELP?</h3>
   <p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
   <div style="margin-top:48px">
-    <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Chicago, US</p>
+    <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> New Delhi, India</p>
     <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +00 151515</p>
-    <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: mail@mail.com</p>
+    <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: vaibagga@mail.com</p>
     <br>
     <form action="/action_page.php" target="_blank">
       <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
